@@ -1,0 +1,33 @@
+<% layout('layout/layout') %>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<div class ="container">
+    <% for(var i=0;i<courses.length;i++){ %>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="img-thumbnail">
+                    <a href="#"><img src="images/video-icon.png" width="100%"></a>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <h4><%= courses[i]["courseName"]%></h4>
+                <b>Faculty: </b><a href="#" ><%= courses[i]["facultyName"]%><br></a>
+
+                <u>Course Details</u><br>
+                <div class="row">
+                    <div class="col-md-5">
+                        <b>Offered During: </b><%= courses[i]["season"]%><br>
+                        <b>Offered At: </b><%= courses[i]["city"]%><br>
+                    </div>
+                    <div class="col-md-5">
+                        <b>Cost: </b><%= courses[i]["price"]%>$<br>
+                        <b>Maximum Capacity: </b><%= courses[i]["classSize"]%><br>
+                    </div>
+                </div><br>
+                <p><a href="#" class="btn btn-primary" role="button">Add to Cart <span class="glyphicon glyphicon-shopping-cart"/></a>
+                    <a href="#" class="btn btn-primary" role="button">Purchase</a></p>
+            </div>
+        </div>
+        <br>
+    <%}%>
+</div>
+
