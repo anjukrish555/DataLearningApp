@@ -1,7 +1,7 @@
 <% layout('layout/layout') %>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <div class ="container">
-    <% for(var i=0;i<courses.length;i++){ %>
+    <% for(var i = 0; i < courses.length; i++) { %>
         <div class="row">
             <div class="col-md-3">
                 <div class="img-thumbnail">
@@ -10,8 +10,8 @@
             </div>
             <div class="col-md-7">
                 <h4><%= courses[i]["courseName"]%></h4>
-                <b>Faculty: </b><a href="#" ><%= courses[i]["facultyName"]%><br></a>
-
+                <b>Faculty: </b><a href="#" data-toggle="modal" data-target="#myModal" data-yourparameter1='<%= courses[i]["facultyName"]%>'
+                                   data-yourparameter2='<%= courses[i]["facultyQualification"]%>'><%= courses[i]["facultyName"]%><br></a>
                 <u>Course Details</u><br>
                 <div class="row">
                     <div class="col-md-5">
@@ -28,6 +28,31 @@
             </div>
         </div>
         <br>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><strong>Faculty Name:</strong> <label id="facultyName"></label></h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Qualification: </strong><label id="qualification"></label><br>
+                            <strong>Description: </strong><p align="justify">Joshua J. Bloch (born August 28, 1961) is an American software engineer
+                            and a technology author, formerly employed at Sun Microsystems and Google. He led the design and implementation of numerous
+                            Java platform features, including the Java <C></C>ollections Framework, the java.math package, and the assert mechanism. He is the
+                            author of the programming guide Effective Java (2001), which won the 2001 Jolt Award, and is a co-author of two other Java
+                            books, Java Puzzlers (2005) and Java Concurrency In Practice (2006). Bloch holds a B.S. in computer science from Columbia
+                            University and a Ph.D. in computer science from Carnegie Mellon University. His 1990 thesis was titled A Practical Approach
+                            to Replication of Abstract Data Objects and was nominated for the ACM Distinguished Doctoral Dissertation Award.Bloch has
+                            worked as a Senior Systems Designer at Transarc, and later as a Distinguished Engineer at Sun Microsystems. In June 2004,
+                            he left Sun and became Chief Java Architect at Google. On August 3, 2012, Bloch announced that he would be leaving Google.</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     <%}%>
 </div>
 
