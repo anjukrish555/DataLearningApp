@@ -6,8 +6,8 @@ var logger = require('morgan');
 var engine = require('ejs-mate');
 
 var viewCoursesRouter = require('./routes/viewCourses');
-var usersRouter = require('./routes/users');
-var indexRouter = require('./routes/index');
+var signUpRouter = require('./routes/signUpPage');
+var signInRouter = require('./routes/signInPage');
 
 var app = express();
 
@@ -22,9 +22,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
 app.use('/viewCourses', viewCoursesRouter);
-app.use('/users', usersRouter);
+app.use('/signUp', signUpRouter);
+app.use('/signIn', signInRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
