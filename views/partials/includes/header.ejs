@@ -1,11 +1,11 @@
 <header>
     <a href="/home" class="site-logo mb-2"><span>CMU E-Course</span></a>
-    <a href="path/to/shopping/cart" id="btn-cart" class="btn btn-primary" aria-label="View 3 items in your shopping cart">
-        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-        <div class="sub-panel">
-            <a href="/update">Update Information</a>
-            <a href="/logout">Sign out</a>
-        </div>
-    </a>
-    <a href=# class="sign-in">Sign In</a>
+    <% if(cart){ %>
+        <a href="path/to/shopping/cart" id="btn-cart" class="btn btn-primary" aria-label="View 3 items in your shopping cart">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </a>
+    <% } %>
+    <% if(signUp){ %>
+        <a href=# class="sign-in">Sign In/Sign Up</a>
+    <% } %>
 </header>
