@@ -5,7 +5,7 @@ var connection = require('./connection.js');
 router.get('/',function(req, res) {
     connection.getConnection(function (err, connection) {
         if (err) throw err
-        var sql = 'select courseID,courseName,city,season,price,classSize,facultyName,facultyDescription,socialMediaNotification,videoLinks from classOfferings, faculty where faculty.facultyID=classOfferings.facultyID;';
+        var sql = 'select * from faculty';
 
         connection.query(sql, function (err, rows, fields) {
             if (err) throw err
@@ -13,7 +13,7 @@ router.get('/',function(req, res) {
                 var jsonStr = JSON.stringify(rows);
                 var jsonObj = JSON.parse(jsonStr);
                 console.log(jsonObj);
-                res.render('viewCourses',{ title: 'Courses Offered',header: true, navbar: true, courses:jsonObj});
+                res.render('viewFaculties',{ title: 'Teaching Faculties',header: true, navbar: true, courses:jsonObj});
             }
             connection.release();
         });
