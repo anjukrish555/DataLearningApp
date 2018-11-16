@@ -13,25 +13,27 @@ router.post('/signup',function(req,res,next){
 	}else{
 		//var sql_stud='INSERT INTO student(studentName,studentAcademicbg,studentContactDetails) VALUES (?,?,?)',[req.body.fullname,req.body.background,req.body.contact];
 		//var sql_login='INSERT INTO login(emailID,password) VALUES (?,?)'[req.body.email,!req.body.password];
-		var k=1;
+		var k=0;
 		connection.query('INSERT INTO student(studentName,studentAcademicbg,studentContactDetails) VALUES (?,?,?)',[req.body.fullname,req.body.background,req.body.contact],
 		function(error,rows,fields){
 		if (err) throw err
 		else{
 			k++;
 			//res.render('message':req.body.fullname+' was registered successfully')
-		}
-		});
-		connection.query('INSERT INTO login(emailID,password) VALUES (?,?)'[req.body.email,!req.body.password],		
-		function(error,rows,fields){
-		if (err) throw err
-		else{
+			connection.query('INSERT INTO login(emailID,password) VALUES (?,?)'[req.body.email,!req.body.password],		
+			function(error,rows,fields){
+			if (err) throw err
+			else{
 			k++;
 			//res.render('message':req.body.fullname+' was registered successfully')
+			if(k==2)
+			 res.render('signUp',{ title: 'Sign Up',header: true, navbar: true, signUp: false, cart: false});
+			}
+		});
 		}
 		});
-		if(k==2)
-			 res.render('signUp',{ title: 'Sign Up',header: true, navbar: true, signUp: false, cart: false});
+		
+		
 			//res.render('message',{req.body.fullname+' was registered successfully'})
 	}
 	 connection.release();
