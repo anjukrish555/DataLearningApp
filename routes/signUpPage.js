@@ -12,7 +12,7 @@ router.post('/signup',function(req,res,next){
 		res.json({'error':'THe input field/s is empty'});
 	}else{
 		//var sql_stud='INSERT INTO student(studentName,studentAcademicbg,studentContactDetails) VALUES (?,?,?)',[req.body.fullname,req.body.background,req.body.contact];
-		//var sql_login='INSERT INTO login(emailID,password) VALUES (?,?)'[req.body.email,!req.body.password];
+		//var sql_login='INSERT INTO login(emailID,password) VALUES (?,?)'[req.body.email,req.body.password];
 		var k=0;
 		connection.query('INSERT INTO student(studentName,studentAcademicbg,studentContactDetails) VALUES (?,?,?)',[req.body.fullname,req.body.background,req.body.contact],
 		function(error,rows,fields){
@@ -20,7 +20,7 @@ router.post('/signup',function(req,res,next){
 		else{
 			k++;
 			//res.render('message':req.body.fullname+' was registered successfully')
-			connection.query('INSERT INTO login(emailID,password) VALUES (?,?)'[req.body.email,!req.body.password],		
+			connection.query('INSERT INTO login(emailID,password) VALUES (?,?)'[req.body.email,req.body.password],		
 			function(error,rows,fields){
 			if (err) throw err
 			else{
