@@ -10,8 +10,11 @@
             </div>
             <div class="col-md-7">
                 <h4><%= courses[i]["courseName"]%></h4>
-                <b>Faculty: </b><a href="#" data-toggle="modal" data-target="#myModal" data-yourparameter1='<%= courses[i]["facultyName"]%>'
+                <b>Faculty: </b><a href="/sampleVideo" data-toggle="modal" data-target="#myModal" data-yourparameter1='<%= courses[i]["facultyName"]%>'
                                    data-yourparameter2='<%= courses[i]["facultyQualification"]%>'><%= courses[i]["facultyName"]%><br></a>
+                <video width="320" height="240" id="videoPlayer" controls>
+                    <source src="/sampleVideo" type="video/mp4">
+                </video>
                 <u>Course Details</u><br>
                 <div class="row">
                     <div class="col-md-5">
