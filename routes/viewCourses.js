@@ -26,7 +26,7 @@ var connection = require('./connection.js');
 router.get('/',function(req, res) {
     connection.getConnection(function (err, connection) {
         if (err) throw err
-        var sql = 'select courseID,courseName,city,season,price,classSize,facultyName,facultyDescription,socialMediaNotification,videoLinks from classOfferings, faculty where faculty.facultyID=classOfferings.facultyID;';
+        var sql = 'select courseID,courseName,city,season,price,classSize,facultyName,facultyDescription,facultyQualification,socialMediaNotification,videoLinks from classOfferings, faculty where faculty.facultyID=classOfferings.facultyID;';
 
         connection.query(sql, function (err, rows, fields) {
             if (err) throw err
