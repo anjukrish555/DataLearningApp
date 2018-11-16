@@ -21,12 +21,14 @@ studentName text,
 studentAcademicbg text,
 studentContactDetails text
 );
+alter table student add email text;
 //not required
 create table courses(
 courseID int not null auto_increment primary key,
 courseName text
 );
-
+describe student;
+select * from faculty;
 create table paymentDetails(
 paymentID int not null auto_increment primary key,
 cardNumber int,
@@ -39,7 +41,7 @@ create table login(
 emailID text not null,
 password text not null
 );
-
+select * from login;
 create table cart(
 cartID int not null auto_increment primary key,
 studentID int,
@@ -91,7 +93,9 @@ select * from classOfferings, faculty where faculty.facultyID=classOfferings.fac
 select courseID,courseName,city,season,price,classSize,facultyName,socialMediaNotification,videoLinks from classOfferings, faculty where faculty.facultyID=classOfferings.facultyID;
 
 select * from classOfferings;
-select * from faculty;
+select * from faculty, classOfferings where faculty.facultyID=classofferings.facultyID;
+select courseID,courseName,city,season,price,classSize,facultyName,facultyDescription,socialMediaNotification,videoLinks from classOfferings, faculty where faculty.facultyID=classOfferings.facultyID;
+
 select count(*) from faculty;
 select count(*) from classOfferings;
 show tables;
