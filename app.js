@@ -8,7 +8,7 @@ var engine = require('ejs-mate');
 var viewCoursesRouter = require('./routes/viewCourses');
 var signUpRouter = require('./routes/signUpPage');
 var signInRouter = require('./routes/signInPage');
-//var videoRouter = require('./routes/videoRender');
+var videoRouter = require('./routes/videoRender');
 
 var app = express();
 
@@ -23,10 +23,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/', viewCoursesRouter);
 app.use('/viewCourses', viewCoursesRouter);
 app.use('/signUp', signUpRouter);
 app.use('/signIn', signInRouter);
-//app.use('/sampleVideo', videoRouter);
+app.use('/sampleVideo', videoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
