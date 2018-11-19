@@ -12,7 +12,6 @@ router.get('/',function(req, res) {
             if (rows != undefined) {
                 var jsonStr = JSON.stringify(rows);
                 var jsonObj = JSON.parse(jsonStr);
-                console.log(jsonObj);
                 res.render('viewCourses',{ title: 'Courses Offered',header: true, navbar: true, cart: true, signUp: true, courses:jsonObj});
             }
             connection.release();

@@ -3,11 +3,11 @@ var router = express.Router();
 
 router.get('/', function(req, res) {
     var fs = require('fs');
-    var path = './public/assets/SampleVideo1.mp4';
-    console.log("hey");
+    var videoName = req.query.name;
+    var path = './public/assets/'+videoName+'.webm';
+    console.log(path);
     var stat = fs.statSync(path);
     var fileSize = stat.size;
-    console.log("size:" +fileSize);
     var range = req.headers.range;
     if (range) {
         var parts = range.replace(/bytes=/, "").split("-");
