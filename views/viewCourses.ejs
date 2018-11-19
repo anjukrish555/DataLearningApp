@@ -13,7 +13,7 @@
                     <h4 id="course-header"><%= courses[i]["courseName"]%></h4>
                     <b>Faculty: </b><a href="/sampleVideo" data-toggle="modal" data-target="#myModal" data-yourparameter1='<%= courses[i]["facultyName"]%>'
                                        data-yourparameter2='<%= courses[i]["facultyQualification"]%>' data-yourparameter3='<%= courses[i]["facultyDescription"]%>'><%= courses[i]["facultyName"]%><br></a>
-                    <video width="320" height="240" id="videoPlayer" controls="controls" autoplay="autoplay">
+                    <video width="320" height="240" id="videoPlayer" controls="controls">
                         <source src='/sampleVideo?name=SampleVideo<%=i%>' type="video/webm">
                     </video>
                     <br>

@@ -6,6 +6,10 @@
         </a>
     <% } %>
     <% if(signUp){ %>
-        <a href="/signUp" class="sign-in">Sign In/Sign Up</a>
+
+        <% if(signUpMsg.length == 6) { %>
+            <a href="/signUp" class="sign-in">Please Sign In/Sign Up</a>
+        <% }%>
+            <div class="sign-in"><%= signUpMsg%> &nbsp;&nbsp;</div>
     <% } %>
 </header>

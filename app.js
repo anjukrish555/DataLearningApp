@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var engine = require('ejs-mate');
+var sessions = require('cookie-session');
 
 var viewCoursesRouter = require('./routes/viewCourses');
 var signUpRouter = require('./routes/signUpPage');
@@ -16,6 +17,15 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.engine('ejs',engine);
 app.set('view engine', 'ejs');
+
+//session properties
+app.use(sessions({
+    secret:'kfebwfwkjb5654fvfwe',
+    rolling: false,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 900000 }
+}));
 
 app.use(logger('dev'));
 app.use(express.json());

@@ -3,14 +3,14 @@
 
 
 <div class="container user-form py-sm-5">
-    <% if(false) { %>
+    <% if(signUpError) { %>
         <div class="alert alert-danger" role="alert">
-            Validation Message
+            <%= msg%>
         </div>
     <% } %>
     <div class="row">
         <div class="col-12 col-lg-4 offset-lg-2">
-            <form id="signUp" class="mt-5">
+            <form id="signUp" class="mt-5" action="/signUp" method="post">
                 <div class="form-group">
                     <input type="text" name="fullname" value="" class="form-control" placeholder="Full name">
                 </div>

@@ -3,6 +3,12 @@ var express= require('express');
 var router = express.Router();
 var connection = require('./connection.js');
 router.get('/',function(req, res) {
+    var session;
+    session = req.session;
+    var activeMsg = 'Hello!';
+    if(session.uniqueID){
+        activeMsg = 'Hello '+session.uniqueID+'!';
+    }
     connection.getConnection(function (err, connection) {
         if (err) throw err
         var sql = 'select courseID,courseName,city,season,price,classSize,facultyName,facultyQualification,facultyDescription,socialMediaNotification,videoLinks from classOfferings, faculty where faculty.facultyID=classOfferings.facultyID;';
@@ -12,7 +18,7 @@ router.get('/',function(req, res) {
             if (rows != undefined) {
                 var jsonStr = JSON.stringify(rows);
                 var jsonObj = JSON.parse(jsonStr);
-                res.render('viewCourses',{ title: 'Courses Offered',header: true, navbar: true, cart: true, signUp: true, courses:jsonObj});
+                res.render('viewCourses',{ title: 'Courses Offered',header: true, navbar: true, cart: true, signUp: true, signUpMsg: activeMsg, courses:jsonObj});
             }
             connection.release();
         });
