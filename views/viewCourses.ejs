@@ -4,30 +4,33 @@
     <% for(var i = 0; i < courses.length; i++) { %>
         <div class="row">
             <div class="col-md-3">
-                <div class="img-thumbnail">
+                <!--<div class="img-thumbnail">
                     <a href="#"><img src="images/video-icon.png" width="100%"></a>
-                </div>
+                </div>-->
             </div>
             <div class="col-md-7">
-                <h4><%= courses[i]["courseName"]%></h4>
-                <b>Faculty: </b><a href="/sampleVideo" data-toggle="modal" data-target="#myModal" data-yourparameter1='<%= courses[i]["facultyName"]%>'
-                                   data-yourparameter2='<%= courses[i]["facultyQualification"]%>'><%= courses[i]["facultyName"]%><br></a>
-                <video width="320" height="240" id="videoPlayer" controls>
-                    <source src="/sampleVideo" type="video/mp4">
-                </video>
-                <u>Course Details</u><br>
-                <div class="row">
-                    <div class="col-md-5">
-                        <b>Offered During: </b><%= courses[i]["season"]%><br>
-                        <b>Offered At: </b><%= courses[i]["city"]%><br>
-                    </div>
-                    <div class="col-md-5">
-                        <b>Cost: </b><%= courses[i]["price"]%>$<br>
-                        <b>Maximum Capacity: </b><%= courses[i]["classSize"]%><br>
-                    </div>
-                </div><br>
-                <p><a href="#" class="btn btn-primary" role="button">Add to Cart <span class="glyphicon glyphicon-shopping-cart"/></a>
-                    <a href="#" class="btn btn-primary" role="button">Purchase</a></p>
+                <div class="well">
+                    <h4 id="course-header"><%= courses[i]["courseName"]%></h4>
+                    <b>Faculty: </b><a href="/sampleVideo" data-toggle="modal" data-target="#myModal" data-yourparameter1='<%= courses[i]["facultyName"]%>'
+                                       data-yourparameter2='<%= courses[i]["facultyQualification"]%>' data-yourparameter3='<%= courses[i]["facultyDescription"]%>'><%= courses[i]["facultyName"]%><br></a>
+                    <video width="320" height="240" id="videoPlayer" controls="controls" autoplay="autoplay">
+                        <source src='/sampleVideo?name=SampleVideo<%=i%>' type="video/webm">
+                    </video>
+                    <br>
+                    <u>Course Details</u><br>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <b>Offered During: </b><%= courses[i]["season"]%><br>
+                            <b>Offered At: </b><%= courses[i]["city"]%><br>
+                        </div>
+                        <div class="col-md-5">
+                            <b>Cost: </b><%= courses[i]["price"]%>$<br>
+                            <b>Maximum Capacity: </b><%= courses[i]["classSize"]%><br>
+                        </div>
+                    </div><br>
+                    <p align="center"><a href="#" class="btn btn-primary" role="button">Add to Cart <span class="glyphicon glyphicon-shopping-cart"/></a>
+                        &nbsp;&nbsp;<a href="#" class="btn btn-primary" role="button">Purchase</a></p>
+                </div>
             </div>
         </div>
         <br>
@@ -42,15 +45,7 @@
                     </div>
                     <div class="modal-body">
                         <p><strong>Qualification: </strong><label id="qualification"></label><br>
-                            <strong>Description: </strong><p align="justify">Joshua J. Bloch (born August 28, 1961) is an American software engineer
-                            and a technology author, formerly employed at Sun Microsystems and Google. He led the design and implementation of numerous
-                            Java platform features, including the Java <C></C>ollections Framework, the java.math package, and the assert mechanism. He is the
-                            author of the programming guide Effective Java (2001), which won the 2001 Jolt Award, and is a co-author of two other Java
-                            books, Java Puzzlers (2005) and Java Concurrency In Practice (2006). Bloch holds a B.S. in computer science from Columbia
-                            University and a Ph.D. in computer science from Carnegie Mellon University. His 1990 thesis was titled A Practical Approach
-                            to Replication of Abstract Data Objects and was nominated for the ACM Distinguished Doctoral Dissertation Award.Bloch has
-                            worked as a Senior Systems Designer at Transarc, and later as a Distinguished Engineer at Sun Microsystems. In June 2004,
-                            he left Sun and became Chief Java Architect at Google. On August 3, 2012, Bloch announced that he would be leaving Google.</p>
+                            <strong>Description: </strong><label id="description"></label>
                         </p>
                     </div>
                 </div>
