@@ -58,10 +58,14 @@ router.post('/', function (req, res, next) {
                                             if (err) throw err
                                             else {
                                                 k++;
+												connection.query('SELECT studentID from student where emailID=?',[req.body.email], function(err, results,fields){
                                                 if (k == 2) {
-                                                    session.uniqueID = req.body.fullname;
+                                                    session.name = req.body.fullname;
+													session.email=req.body.email;
+													session.id=results[0];
                                                     res.redirect('/viewCourses');
                                                 }
+												});
                                             }
                                         });
                                 }
