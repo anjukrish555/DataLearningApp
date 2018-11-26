@@ -1,5 +1,5 @@
 #!/bin/bash
-#This script is used to trigger mocha test scripts
+#This script is used to trigger mocha test script
 
 
 ./node_modules/.bin/mocha
