@@ -25,11 +25,11 @@ hooks:
   ApplicationStop:
     - location: codedeploy/app_stop.sh
       timeout: 180
+  RunTest:
+    - location: codedeploy/run_test.sh
+      timeout: 180
   ValidateService:
     - location: codedeploy/validate_service.sh
-      timeout: 180
-  RunTestScripts:
-    - location: codedeploy/run_test.sh
       timeout: 180
 
 
