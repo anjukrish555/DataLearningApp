@@ -46,9 +46,11 @@ router.post('/', function(req,res,next){
 					});
 				}
 				else{
-					connection.query('SELECT studentName from student where emailID=?',[req.body.email], function(err, results,fields){
+					connection.query('SELECT studentName,studentID from student where emailID=?',[req.body.email], function(err, results,fields){
 						if(!err && results.length>0){
-							session.uniqueID = results[0];
+							session.name = results[0].studentName;
+							session.email=req.body.email;
+							session.id=results[0].studentID;
 							res.redirect('/viewCourses');	
 						}  
 
