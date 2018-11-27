@@ -36,7 +36,7 @@ router.post('/', function (req, res, next) {
                 function (err, rows, fields) {
                     if (err)
                         connection.end;
-                    if (rows != undefined) {
+                    if (rows.length != 0) {
                         res.render('signUp', {
                             title: 'Sign Up',
                             header: true,
