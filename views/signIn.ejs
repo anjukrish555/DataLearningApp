@@ -1,14 +1,14 @@
 <% layout('layout/layout') %>
 
 <div class="container user-form py-sm-5">
-    <% if(false) { %>
+    <% if(signUpError) { %>
         <div class="alert alert-danger" role="alert">
             <%= msg%>
         </div>
     <% } %>
     <div class="row">
         <div class="col-12 col-lg-4 offset-lg-4">
-            <form id="signIn" class="mt-5">
+            <form id="signIn" class="mt-5" action="/signIn" method="post">
                 <div class="form-group">
                     <input type="email" name="email" value="" class="form-control" placeholder="example@abcd.com">
                 </div>

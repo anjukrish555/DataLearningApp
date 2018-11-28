@@ -10,6 +10,7 @@ var viewCoursesRouter = require('./routes/viewCourses');
 var signUpRouter = require('./routes/signUpPage');
 var signInRouter = require('./routes/signInPage');
 var videoRouter = require('./routes/videoRender');
+var addRouter = require('./routes/addToCart');
 
 var app = express();
 
@@ -38,6 +39,7 @@ app.use('/viewCourses', viewCoursesRouter);
 app.use('/signUp', signUpRouter);
 app.use('/signIn', signInRouter);
 app.use('/sampleVideo', videoRouter);
+app.use('/addToCart', addRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
