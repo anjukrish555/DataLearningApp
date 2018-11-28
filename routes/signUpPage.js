@@ -62,7 +62,7 @@ router.post('/', function (req, res, next) {
                                                 if (k == 2) {
                                                     session.name = req.body.fullname;
 													session.email=req.body.email;
-													session.id=results[0];
+													session.id=rows[0];
                                                     res.redirect('/viewCourses');
                                                 }
 												});

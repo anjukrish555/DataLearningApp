@@ -6,8 +6,8 @@ router.get('/',function(req, res) {
     var session;
     session = req.session;
     var activeMsg = 'Hello!';
-    if(session.uniqueID){
-        activeMsg = 'Hello '+session.uniqueID+'!';
+    if(session.name){
+        activeMsg = 'Hello '+session.name+'!';
     }
     connection.getConnection(function (err, connection) {
         if (err) throw err
