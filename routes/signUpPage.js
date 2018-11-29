@@ -58,11 +58,11 @@ router.post('/', function (req, res, next) {
                                             if (err) throw err
                                             else {
                                                 k++;
-												connection.query('SELECT studentID from student where emailID=?',[req.body.email], function(err, results,fields){
+												connection.query('SELECT studentID from student where emailID=?',[req.body.email], function(err, rows, fields){
                                                 if (k == 2) {
                                                     session.name = req.body.fullname;
 													session.email=req.body.email;
-													session.id=rows[0];
+													session.id=rows[0].studentID;
                                                     res.redirect('/viewCourses');
                                                 }
 												});

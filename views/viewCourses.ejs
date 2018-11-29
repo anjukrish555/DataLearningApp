@@ -1,6 +1,30 @@
 <% layout('layout/layout') %>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <div class ="container">
+    <script src="/js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                url: "/addToCart",
+                method: 'GET',
+                success: function(response){
+                    var numOfItems = response.value;
+                    var success = response.success;
+                    if (success) {
+                        if(numOfItems != 0)
+                            document.querySelector('#cartNumber').innerHTML = numOfItems;
+                    } else {
+                        console.log("Failed to add to cart!");
+                    }
+                },
+                error: function () {
+                    //console.log("Error:" + error);
+                    console.log("Error Failed to add to cart!");
+                }
+            });
+        });
+    </script>
     <% for(var i = 0; i < courses.length; i++) { %>
         <div class="row">
             <div class="col-md-3">
@@ -28,7 +52,7 @@
                             <b>Maximum Capacity: </b><%= courses[i]["classSize"]%><br>
                         </div>
                     </div><br>
-                    <p align="center"><a href="#" class="btn btn-primary" role="button">Add to Cart <span class="glyphicon glyphicon-shopping-cart"/></a>
+                    <p align="center"><a href="#" class="btn btn-primary" role="button" onclick="addToCart(<%= courses[i]["courseID"]%>)">Add to Cart <span class="glyphicon glyphicon-shopping-cart"/></a>
                         &nbsp;&nbsp;<a href="#" class="btn btn-primary" role="button">Purchase</a></p>
                 </div>
             </div>
