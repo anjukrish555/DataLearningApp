@@ -4,7 +4,7 @@
 function addToCart(courseId) {
     $.ajax({
         method: 'POST',
-        url: 'http://localhost:5000/addToCart',
+        url: '/addToCart',
         data: {"courseId":courseId},
         dataType: 'json',
         success: function (response) {
