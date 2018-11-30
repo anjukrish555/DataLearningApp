@@ -25,3 +25,4 @@ function addToCart(courseId) {
 }
 
 
+

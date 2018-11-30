@@ -12,6 +12,7 @@ var signInRouter = require('./routes/signInPage');
 var videoRouter = require('./routes/videoRender');
 var addRouter = require('./routes/addToCart');
 var checkoutRouter = require('./routes/checkout');
+var directPurchaseRouter = require('./routes/directPurchase');
 var app = express();
 
 // view engine setup
@@ -41,6 +42,7 @@ app.use('/signIn', signInRouter);
 app.use('/sampleVideo', videoRouter);
 app.use('/addToCart', addRouter);
 app.use('/checkout', checkoutRouter);
+app.use('/directPurchase', directPurchaseRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

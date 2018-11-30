@@ -52,8 +52,13 @@
                             <b>Maximum Capacity: </b><%= courses[i]["classSize"]%><br>
                         </div>
                     </div><br>
-                    <p align="center"><a href="#" class="btn btn-primary" role="button" onclick="addToCart(<%= courses[i]["courseID"]%>)">Add to Cart <span class="glyphicon glyphicon-shopping-cart"/></a>
-                        &nbsp;&nbsp;<a href="#" class="btn btn-primary" role="button">Purchase</a></p>
+                        <a href="#" class="btn btn-primary" role="button" onclick="addToCart(<%= courses[i]["courseID"]%>)">
+                            Add to Cart <span class="glyphicon glyphicon-shopping-cart"/>
+                        </a>
+                        <form style="display:inline" id="form<%= i%>" method="post" action="/directPurchase">
+                            <input type="hidden" name="courseId" value="<%= courses[i]["courseID"]%>"/>
+                            <a onclick="document.getElementById('form<%= i%>').submit();" class="btn btn-primary" role="button" style="color: white">Purchase</a>
+                        </form>
                 </div>
             </div>
         </div>
