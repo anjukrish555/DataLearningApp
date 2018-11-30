@@ -68,15 +68,14 @@
             <h4>Cart
                 <span class="price" style="color:black">
           <i class="fa fa-shopping-cart"></i>
-          <b>4</b>
+          <b><%= itemCount %></b>
         </span>
             </h4>
-            <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-            <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-            <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-            <p><a href="#">Product 4</a> <span class="price">$2</span></p>
+            <% for(var i = 0; i < checkout.length; i++) { %>
+                <p><%= checkout[i]["courseName"]%><span class="price"><%= checkout[i]["price"]%> $</span></p>
+            <% } %>
             <hr>
-            <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+            <p><strong>Total:<span class="price"><%= totalPrice %> $</span></strong></p>
         </div>
     </div>
 </div>
